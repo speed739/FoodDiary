@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace FoodDiary.Command
 {
-    class LoginCommand : ICommand
+    class LoginLoginCommand : ICommand
     {
         public LoginValidation Validations = new LoginValidation();
 
@@ -46,8 +46,7 @@ namespace FoodDiary.Command
 
             if (query.Login(param.Login, param.Password) > 0)
             {
-                //Global_Methods.username = txt_Username.Text;
-                UserWindow userwindow = new UserWindow(param.Login);
+                UserWindow userwindow = new UserWindow();
                 Methods.CloseMethod(EnumWindow.LoginW);
                 userwindow.ShowDialog();
             }

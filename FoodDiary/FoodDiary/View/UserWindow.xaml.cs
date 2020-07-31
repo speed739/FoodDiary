@@ -19,7 +19,7 @@ namespace FoodDiary.View
     /// </summary>
     public partial class UserWindow : Window
     {
-        public UserWindow(string login)
+        public UserWindow()
         {
             InitializeComponent();
         }

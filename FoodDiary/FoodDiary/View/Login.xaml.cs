@@ -28,16 +28,10 @@ namespace FoodDiary.View
             DataContext = LoginViewModel;
             InitializeComponent();
         }
-        private void btn_Registration_Click_1(object sender, RoutedEventArgs e)
-        {
-            Registration reg = new Registration();
-            reg.ShowDialog();
-        }
         private void txt_Password_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (this.DataContext != null)
             { ((dynamic)this.DataContext).LoginModel.Password = ((PasswordBox)sender).Password; }
-
         }
     }
 }

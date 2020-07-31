@@ -76,7 +76,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Command\LoginCommand.cs" />
+    <Compile Include="Command\LoginLoginCommand.cs" />
+    <Compile Include="Command\LoginRegistrationCommand.cs" />
     <Compile Include="Command\WelcomeWindowExitCommand.cs" />
     <Compile Include="Command\WelcomeWindowRegistrationCommand.cs" />
     <Compile Include="Command\WelcomeWindowSignUpCommand.cs" />

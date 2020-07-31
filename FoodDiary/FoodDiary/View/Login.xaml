@@ -22,8 +22,8 @@
                 <TextBox x:Name="txt_Username" FontSize="18" Text="{Binding LoginModel.Login}" ></TextBox>
                 <Label Content="Password" Foreground="White" FontFamily="Century Gothic" FontSize="20" />
                 <PasswordBox x:Name="txt_Password" PasswordChanged="txt_Password_PasswordChanged" FontSize= "18"></PasswordBox>
-                <Button x:Name="btn_Submit" Content="Submit" Margin="0,20,0,10" HorizontalAlignment="Center" Width="140" Height="30" FontSize="20" FontFamily="Century gothic" Background="#FF5B5B5B" Foreground="#FFFDFFFD" BorderBrush="#FF9B9595" Command="{Binding LoginCommand}" CommandParameter="{Binding LoginModel}" />
-                <Button x:Name="btn_Registration" Content="Registration" Margin="0,10,0,0" HorizontalAlignment="Center" Width="140" Height="30" FontSize="20" FontFamily="Century gothic" Background="#FF5B5B5B" Foreground="#FFFDFFFD" BorderBrush="#FF9B9595" Click="btn_Registration_Click_1"/>
+                <Button  Content="Login" Margin="0,20,0,10" HorizontalAlignment="Center" Width="140" Height="30" FontSize="20" FontFamily="Century gothic" Background="#FF5B5B5B" Foreground="#FFFDFFFD" BorderBrush="#FF9B9595" Command="{Binding LoginCommand}" CommandParameter="{Binding LoginModel}" />
+                <Button  Command="{Binding RegistrationCommand}" Content="Registration" Margin="0,10,0,0" HorizontalAlignment="Center" Width="140" Height="30" FontSize="20" FontFamily="Century gothic" Background="#FF5B5B5B" Foreground="#FFFDFFFD" BorderBrush="#FF9B9595"/>
             </StackPanel>
         </Border>
         <Canvas HorizontalAlignment="Left" Height="88" VerticalAlignment="Top" Width="254" Margin="270,433,0,0">
