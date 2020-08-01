@@ -14,12 +14,12 @@ namespace FoodDiary.ViewModel
     public class WelcomeWindowViewModel
     {
         public ICommand ExitCommand { get; set; }
-        public ICommand SignUpCommand { get; set; }
+        public ICommand LoginCommand { get; set; }
         public ICommand RegistrationCommand { get; set; }
         public WelcomeWindowViewModel()
         {
             ExitCommand = new WelcomeWindowExitCommand();
-            SignUpCommand = new WelcomeWindowSignUpCommand();
+            LoginCommand = new WelcomeWindowLoginCommand();
             RegistrationCommand = new WelcomeWindowRegistrationCommand();
         }
     }

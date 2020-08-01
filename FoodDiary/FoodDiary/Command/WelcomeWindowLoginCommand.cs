@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace FoodDiary.Command
 {
-    public class WelcomeWindowSignUpCommand : ICommand
+    public class WelcomeWindowLoginCommand : ICommand
     {
         public event EventHandler CanExecuteChanged
         {

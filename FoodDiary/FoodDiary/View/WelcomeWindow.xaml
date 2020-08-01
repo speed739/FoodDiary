@@ -33,7 +33,7 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="1" Grid.Row="1" Margin="0,0,0,3" FontSize="50" Text="Food Diary" FontWeight="UltraLight" FontFamily="Century Gothic" />
         <TextBlock Grid.Column="1" Grid.Row="2" Margin="0,0,0,10" FontSize="24"  FontWeight="Light"  FontFamily="Century Gothic" />
-        <Button  Command="{Binding SignUpCommand}" Grid.Column="1" Grid.Row="4" Margin="0,0,0,3" FontSize="35" Content="Log in " HorizontalAlignment="Left" FontWeight="Light" FontFamily="Century Gothic"  BorderBrush="{x:Null}" >
+        <Button  Command="{Binding LoginCommand}" Grid.Column="1" Grid.Row="4" Margin="0,0,0,3" FontSize="35" Content="Log in " HorizontalAlignment="Left" FontWeight="Light" FontFamily="Century Gothic"  BorderBrush="{x:Null}" >
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>

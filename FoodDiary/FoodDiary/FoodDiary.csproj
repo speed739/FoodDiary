@@ -80,7 +80,7 @@
     <Compile Include="Command\LoginRegistrationCommand.cs" />
     <Compile Include="Command\WelcomeWindowExitCommand.cs" />
     <Compile Include="Command\WelcomeWindowRegistrationCommand.cs" />
-    <Compile Include="Command\WelcomeWindowSignUpCommand.cs" />
+    <Compile Include="Command\WelcomeWindowLoginCommand.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="EnumWindow.cs" />
     <Compile Include="Methods.cs" />
