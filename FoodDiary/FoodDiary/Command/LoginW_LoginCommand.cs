@@ -1,4 +1,5 @@
 ﻿using FluentValidation.Validators;
+using FoodDiary.Enum;
 using FoodDiary.Model;
 using FoodDiary.Validation;
 using FoodDiary.View;
@@ -13,7 +14,7 @@ using System.Windows.Input;
 
 namespace FoodDiary.Command
 {
-    class LoginLoginCommand : ICommand
+    class LoginW_LoginCommand : ICommand
     {
         public LoginValidation Validations = new LoginValidation();
 
@@ -21,33 +22,28 @@ namespace FoodDiary.Command
         {
             if (parameter != null)
             {
-                if (parameter is object && parameter is LoginModel)
-                {
-                    var param = parameter as LoginModel;
-                    param.Errors = string.Join(" ", Validations.Validate(param).Errors);
+                var param = parameter as LoginModel;
+                param.Errors = string.Join(" ", Validations.Validate(param).Errors);
 
-                    if (Validations.Validate(param).IsValid)
-                    {
-                        return true;
-                    }
-                    else
-                        return false;
+                if (Validations.Validate(param).IsValid)
+                {
+                    return true;
                 }
                 else
                     return false;
             }
-            else
-                return false;
+            return false;
         }
         public void Execute(object parameter)
         {
             var param = parameter as LoginModel;
+            Methods Close = new Methods();
             SqlQueries query = new SqlQueries();
 
             if (query.Login(param.Login, param.Password) > 0)
             {
                 UserWindow userwindow = new UserWindow();
-                Methods.CloseMethod(EnumWindow.LoginW);
+                Close.CloseMethod(EnumWindow.LoginW);
                 userwindow.ShowDialog();
             }
             else
@@ -56,7 +52,7 @@ namespace FoodDiary.Command
                 if (result != MessageBoxResult.OK)
                 {
                     WelcomeWindow main = new WelcomeWindow();
-                    Methods.CloseMethod(EnumWindow.LoginW);
+                    Close.CloseMethod(EnumWindow.LoginW);
                     main.ShowDialog();
                 }
             }

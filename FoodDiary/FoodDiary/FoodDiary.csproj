@@ -76,17 +76,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Command\LoginLoginCommand.cs" />
-    <Compile Include="Command\LoginRegistrationCommand.cs" />
-    <Compile Include="Command\WelcomeWindowExitCommand.cs" />
-    <Compile Include="Command\WelcomeWindowRegistrationCommand.cs" />
-    <Compile Include="Command\WelcomeWindowLoginCommand.cs" />
+    <Compile Include="Command\LoginW_LoginCommand.cs" />
+    <Compile Include="Command\RegistrationW_RegistrationCommand.cs" />
+    <Compile Include="Command\WelcomeW_ExitCommand.cs" />
+    <Compile Include="Command\WelcomeW_RegistrationCommand.cs" />
+    <Compile Include="Command\WelcomeW_LoginCommand.cs" />
     <Compile Include="DB.cs" />
-    <Compile Include="EnumWindow.cs" />
+    <Compile Include="Enum\EnumWindow.cs" />
+    <Compile Include="Enum\EnumActivity.cs" />
+    <Compile Include="Enum\EnumSex.cs" />
     <Compile Include="Methods.cs" />
     <Compile Include="Model\LoginModel.cs" />
+    <Compile Include="Model\RegistrationModel.cs" />
+    <Compile Include="Model\UserModel.cs" />
     <Compile Include="SqlQueries.cs" />
     <Compile Include="Validation\LoginValidation.cs" />
+    <Compile Include="Validation\RegistrationValidation.cs" />
+    <Compile Include="ViewModel\RegistrationViewModel.cs" />
     <Compile Include="ViewModel\WelcomeWindowViewModel.cs" />
     <Compile Include="View\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>

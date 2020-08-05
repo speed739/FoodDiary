@@ -4,18 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using FoodDiary.Enum;
 
 namespace FoodDiary
 {
-    public static class Methods
+    public  class Methods
     {
-        public static void ExitMethod()
+        public void ExitMethod()
         {
             List<Window> windows = new List<Window>();
             windows = Application.Current.Windows.OfType<Window>().ToList();
             windows.ForEach(x => x.Close());
         }
-        public static void CloseMethod(Enum WindowName)
+        public void CloseMethod(EnumWindow WindowName)
         {
             List<Window> windows = new List<Window>();
             windows = Application.Current.Windows.OfType<Window>().ToList();

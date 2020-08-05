@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FoodDiary
+namespace FoodDiary.Enum
 {
-    enum EnumWindow
+    public enum EnumActivity
     {
-        WelcomeW,
-        LoginW,
-        RegistrationW
+        Low,
+        Medium,
+        High
     }
 }

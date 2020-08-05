@@ -18,14 +18,11 @@ namespace FoodDiary.ViewModel
         public LoginModel LoginModel { get; set; }
         public LoginValidation LoginValidation { get; set; }
         public ICommand LoginCommand { get; set; }
-        public ICommand RegistrationCommand { get; set; }
-
         public LoginViewModel()
         {
             LoginModel = new LoginModel();
             LoginValidation = new LoginValidation();
-            LoginCommand = new LoginLoginCommand();
-            RegistrationCommand = new LoginRegistrationCommand();
+            LoginCommand = new LoginW_LoginCommand();
         }
     }
 }

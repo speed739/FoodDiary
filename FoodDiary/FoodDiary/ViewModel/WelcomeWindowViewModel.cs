@@ -18,9 +18,9 @@ namespace FoodDiary.ViewModel
         public ICommand RegistrationCommand { get; set; }
         public WelcomeWindowViewModel()
         {
-            ExitCommand = new WelcomeWindowExitCommand();
-            LoginCommand = new WelcomeWindowLoginCommand();
-            RegistrationCommand = new WelcomeWindowRegistrationCommand();
+            ExitCommand = new WelcomeW_ExitCommand();
+            LoginCommand = new WelcomeW_LoginCommand();
+            RegistrationCommand = new WelcomeW_RegistrationCommand();
         }
     }
 }

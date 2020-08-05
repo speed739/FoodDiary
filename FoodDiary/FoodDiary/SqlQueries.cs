@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FoodDiary.Model;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -47,25 +48,24 @@ namespace FoodDiary
             DB.Connection_Close(DB.Connection());
             return result;
         }
-
-        public void CreateUser(string user, string pass, double weight, double height, string sex, string activity, double age, double bmi, double bmr)
+        public void CreateUser(UserModel user)
         {
             sql = "INSERT INTO Users(Username,Password,Weight,Height,Sex,Age,ActivityLevel,BMI,BMR)" +
                 "VALUES (@user,HASHBYTES('SHA1','@password'),@weight,@height,@sex,@age,@active,@bmi,@bmr)";
             var command = new SqlCommand(sql, DB.Connection());
-            command.Parameters.AddWithValue("@user", user);
-            command.Parameters.AddWithValue("@password", pass);
-            command.Parameters.AddWithValue("@weight", weight);
-            command.Parameters.AddWithValue("@height", height);
-            command.Parameters.AddWithValue("@sex", sex);
-            command.Parameters.AddWithValue("@active", activity);
-            command.Parameters.AddWithValue("@age", (int)age);
-            command.Parameters.AddWithValue("@bmi", bmi);
-            command.Parameters.AddWithValue("@bmr", bmr);
+            command.Parameters.AddWithValue("@user", user.Username);
+            command.Parameters.AddWithValue("@password", user.Password);
+            command.Parameters.AddWithValue("@weight", user.Weight);
+            command.Parameters.AddWithValue("@height", user.Height);
+            command.Parameters.AddWithValue("@sex", user.Sex);
+            command.Parameters.AddWithValue("@active", user.Activity);
+            command.Parameters.AddWithValue("@age", user.Age);
+            command.Parameters.AddWithValue("@bmi", user.BMI);
+            command.Parameters.AddWithValue("@bmr", user.BMR);
             command.ExecuteNonQuery();
 
             DB.Connection_Close(DB.Connection());
-            CreateDiary(user);
+            CreateDiary(user.Username);
         }
 
         private void CreateDiary(string user)
@@ -180,15 +180,14 @@ namespace FoodDiary
 
         public double CalculateKcal(int id_diary, DateTime date)
         {
-            double result = 0;
-            string sql = "Select SUM(Kcal) From DiaryDetails WHERE AddData = @data AND ID_Diary = @id_diary";
-            SqlCommand command = new SqlCommand(sql, DB.Connection());
+            sql = "Select SUM(Kcal) From DiaryDetails WHERE AddData = @data AND ID_Diary = @id_diary";
+            var command = new SqlCommand(sql, DB.Connection());
             command.Parameters.AddWithValue("@id_diary", id_diary);
             command.Parameters.AddWithValue("@data", date);
 
             if (!Convert.IsDBNull(command.ExecuteScalar()))
             {
-                return result = Convert.ToDouble(command.ExecuteScalar());
+                return Convert.ToDouble(command.ExecuteScalar());
             }
             else
             {
@@ -197,34 +196,32 @@ namespace FoodDiary
         }
         public DateTime CalculateStartDate(int user_id)
         {
-            DateTime result;
-            string sql = "Select MIN(AddData) From DiaryDetails WHERE ID_Diary = @user_id";
-            SqlCommand command = new SqlCommand(sql, DB.Connection());
+            sql = "Select MIN(AddData) From DiaryDetails WHERE ID_Diary = @user_id";
+            var command = new SqlCommand(sql, DB.Connection());
             command.Parameters.AddWithValue("@user_id", user_id);
 
             if (!Convert.IsDBNull(command.ExecuteScalar()))
             {
-                return result = Convert.ToDateTime(command.ExecuteScalar());
+                return Convert.ToDateTime(command.ExecuteScalar());
             }
             else
             {
-                return result = DateTime.Today;
+                return DateTime.Today;
             }
         }
         public DateTime CalculateEndDate(int user_id)
         {
-            DateTime result;
-            string sql = "Select MAX(AddData) From DiaryDetails WHERE ID_Diary = @user_id";
-            SqlCommand command = new SqlCommand(sql, DB.Connection());
+            sql = "Select MAX(AddData) From DiaryDetails WHERE ID_Diary = @user_id";
+            var command = new SqlCommand(sql, DB.Connection());
             command.Parameters.AddWithValue("@user_id", user_id);
 
             if (!Convert.IsDBNull(command.ExecuteScalar()))
             {
-                return result = Convert.ToDateTime(command.ExecuteScalar());
+                return Convert.ToDateTime(command.ExecuteScalar());
             }
             else
             {
-                return result = DateTime.Today;
+                 return DateTime.Today;
             }
         }
     }

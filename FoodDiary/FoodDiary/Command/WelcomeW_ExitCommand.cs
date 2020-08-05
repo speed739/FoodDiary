@@ -1,5 +1,4 @@
-﻿using FoodDiary.View;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,24 +7,21 @@ using System.Windows.Input;
 
 namespace FoodDiary.Command
 {
-    public class WelcomeWindowRegistrationCommand : ICommand
+    class WelcomeW_ExitCommand : ICommand
     {
         public event EventHandler CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
-
         public bool CanExecute(object parameter)
         {
             return true;
         }
-
         public void Execute(object parameter)
         {
-            Registration registration = new Registration();
-            Methods.CloseMethod(EnumWindow.WelcomeW);
-            registration.ShowDialog();
+            Methods Exit = new Methods();
+            Exit.ExitMethod();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using FoodDiary.View;
+﻿using FoodDiary.Enum;
+using FoodDiary.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Windows.Input;
 
 namespace FoodDiary.Command
 {
-    public class WelcomeWindowLoginCommand : ICommand
+    public class WelcomeW_RegistrationCommand : ICommand
     {
         public event EventHandler CanExecuteChanged
         {
@@ -23,9 +24,10 @@ namespace FoodDiary.Command
 
         public void Execute(object parameter)
         {
-            Login login = new Login();
-            Methods.CloseMethod(EnumWindow.WelcomeW);
-            login.ShowDialog();
+            Registration registration = new Registration();
+            Methods Close = new Methods();
+            Close.CloseMethod(EnumWindow.WelcomeW);
+            registration.ShowDialog();
         }
     }
 }
