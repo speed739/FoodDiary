@@ -11,7 +11,8 @@ namespace FoodDiary.Model
     public class RegistrationModel : INotifyPropertyChanged
     {
         private string _username, _password, _errors;
-        private bool _activityLevelL = true, _activityLevelM, _activityLevelH, _man = true, _woman;
+        private bool _activityLevelL = true, _man = true;
+        private bool _activityLevelM, _activityLevelH, _woman;
         private double _height, _weight, _bmi, _bmr, _age, _actv_l = 1.2;
 
 

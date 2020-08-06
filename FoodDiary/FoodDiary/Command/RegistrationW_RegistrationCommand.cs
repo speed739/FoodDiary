@@ -34,11 +34,10 @@ namespace FoodDiary.Command
         public void Execute(object parameter)
         {
             var user = parameter as RegistrationModel;
-            if (Check_login(user.Username))
+            if (Check_login(user))
             {
                 Create(parameter);
                 MessageBox.Show("Account has been created", "FoodDiary", MessageBoxButton.OK, MessageBoxImage.Information);
-
             }
         }
         private void Create(object parameter)
@@ -48,9 +47,9 @@ namespace FoodDiary.Command
             Query.CreateUser(user);
         }
 
-        private bool Check_login(string username)
+        private bool Check_login(RegistrationModel model)
         {
-            if (Query.CheckUser(username) > 0)
+            if (Query.CheckUser(model.Username) > 0)
             {
                 MessageBox.Show("Username is taken, please change it ", "FoodDiary", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;

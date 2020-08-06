@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LiveCharts.Wpf;
+using LiveCharts;
+using FoodDiary.ViewModel;
 
 namespace FoodDiary.View
 {
@@ -19,9 +22,25 @@ namespace FoodDiary.View
     /// </summary>
     public partial class UserWindow : Window
     {
+        public UserWindowViewModel UserW_ViewModel { get; set; }
         public UserWindow()
         {
+            UserW_ViewModel = new UserWindowViewModel();
+            DataContext = UserW_ViewModel;
             InitializeComponent();
+        }
+        
+        private void Log_Out_Click(object sender, RoutedEventArgs e)
+        {
+            Login log = new Login();
+            Close();
+            log.ShowDialog();
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Methods Methods = new Methods();
+            Methods.ExitMethod();
         }
     }
 }

@@ -50,19 +50,49 @@
         <TextBox Text="{Binding RegistrationModel.Height}" Grid.Column="2" Grid.Row="6" Margin="0,5,0,5" FontSize="15"/>
         <Label Grid.Column="1" Grid.Row="7" Content="Age" FontSize="20" FontFamily="Century gothic"/>
         <TextBox Text ="{Binding RegistrationModel.Age}" Grid.Column="2"  Grid.Row="7" Margin="0,5,0,5" FontSize="15"/>
-        <Label Grid.Column="1" Grid.Row="8" Content="Activity Level" Margin="0,0,5,0" FontSize="20" FontFamily="Century gothic" ToolTip="L - Sitting work and zero training | M - Sitting work and 1h training 1-3 times a week | H - Phisical work and 1h training 5 times a week" ToolTipService.ShowDuration="12000" />
+        <Label Grid.Column="1" Grid.Row="8" Content="Activity Level" Margin="0,0,5,0" FontSize="20" FontFamily="Century gothic" />
         <CheckBox IsChecked="{Binding RegistrationModel.ActivityLevelL}" Content="L" FontSize="20" Grid.Column="2" Grid.Row="8" Margin="0,5,0,0" HorizontalAlignment="Left"   />
         <CheckBox IsChecked="{Binding RegistrationModel.ActivityLevelM}" Content="M" FontSize="20" Grid.Column="2" Grid.Row="8" Margin="0,5,0,0" HorizontalAlignment="Center"  />
         <CheckBox IsChecked="{Binding RegistrationModel.ActivityLevelH}" Content="H" FontSize="20" Grid.Column="2" Grid.Row="8" Margin="0,5,0,0" HorizontalAlignment="Right"   />
-        <Label Grid.Column="1" Grid.Row="10" Content="BMI" FontSize="20" FontFamily="Century gothic" ToolTip="Body mass index (BMI) is a value derived from the mass (weight) and height of a person" ToolTipService.ShowDuration="12000"  />
-        <Label Grid.Column="1" Grid.Row="11" Content="BMR" FontSize="20" FontFamily="Century gothic" ToolTip="Basal metabolic rate (BMR) is the rate of energy expenditure per unit time" ToolTipService.ShowDuration="12000" />
-        <TextBox Text="{Binding RegistrationModel.BMI}" Grid.Column="2" Grid.Row="10" IsReadOnly="true" Margin="0,5,0,5" FontSize="15"/>
-        <TextBox Text="{Binding RegistrationModel.BMR}" Grid.Column="2" Grid.Row="11" IsReadOnly="true" Margin="0,5,0,5" FontSize="15"/>
+        <Label Grid.Column="1" Grid.Row="10" Content="BMI" FontSize="20" FontFamily="Century gothic" />
+        <Label Grid.Column="1" Grid.Row="11" Content="BMR" FontSize="20" FontFamily="Century gothic" />
+        <TextBox Text="{Binding RegistrationModel.BMI, StringFormat=N1}" Grid.Column="2" Grid.Row="10" IsReadOnly="true" Margin="0,5,0,5" FontSize="15"/>
+        <TextBox Text="{Binding RegistrationModel.BMR, StringFormat=N0}" Grid.Column="2" Grid.Row="11" IsReadOnly="true" Margin="0,5,0,5" FontSize="15"/>
         <Button  Command="{Binding RegistrationCommand}" CommandParameter="{Binding RegistrationModel}" Grid.Column="1" Grid.Row="12" Content="Registration" FontWeight="Light" Margin="0,5,5,5" FontSize="20" FontFamily="Century gothic" Background="#FF5B5B5B" Foreground="#FFFDFFFD" BorderBrush="#FF9B9595" />
         <Button Click ="ButtonBack_Click" Grid.Column="3"  Width="100"  Grid.Row="11" Content="Back" FontWeight="Light"  Margin="0,5,0,5" FontSize="20" FontFamily="Century gothic" HorizontalAlignment="Center" Background="#FF5B5B5B" Foreground="#FFFDFFFD" BorderBrush="#FF9B9595"/>
         <Button Click ="ButtonExit_Click" Width="100"  Grid.Column="3" Grid.Row="12" Content="Exit" FontWeight="Light" Margin="0,5,0,5" FontSize="20" FontFamily="Century gothic" HorizontalAlignment="Center" Background="#FF5B5B5B" Foreground="#FFFDFFFD" BorderBrush="#FF9B9595" />
-        <Canvas HorizontalAlignment="Left" Height="89" VerticalAlignment="Top" Width="289" Grid.Column="1"  Margin="0,5,0,-73" Grid.Row="13" Grid.ColumnSpan="2">
-            <TextBlock TextAlignment="Left" FontSize="14" FontFamily="Century gothic" Background="#FF5B5B5B" Foreground="#FFFDFFFD" TextWrapping="Wrap" Height="118" Width="337" Canvas.Top="-3"><Run Text=""/><Run Text="     Error List :"/><LineBreak/><Run Text="{Binding RegistrationModel.Errors}"/></TextBlock>
+        <Canvas HorizontalAlignment="Left" Height="293" VerticalAlignment="Bottom" Width="352" Grid.Column="1"  Margin="0,0,0,-112" Grid.Row="13" Grid.ColumnSpan="3">
+            <TextBlock TextAlignment="Left" FontSize="14" FontFamily="Century gothic" Background="#FF5B5B5B" Foreground="#FFFDFFFD" TextWrapping="Wrap" Height="116" Width="337" Canvas.Top="167"><Run Text=""/><Run Text="     Error List :"/><LineBreak/><Run Text="{Binding RegistrationModel.Errors}"/></TextBlock>
+            <Image ToolTip="Body mass index (BMI) is a value derived from the mass (weight) and height of a person" ToolTipService.ShowDuration="12000" Height="12" Canvas.Left="38" Canvas.Top="48" Width="12" RenderTransformOrigin="0.27,0.093" Source="/FoodDiary;component/Images/icon.png">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.054"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image ToolTip="Basal metabolic rate (BMR) is the rate of energy expenditure per unit time" ToolTipService.ShowDuration="12000" Height="12" Canvas.Left="44" Canvas.Top="82" Width="12" RenderTransformOrigin="0.27,0.093" Source="/FoodDiary;component/Images/icon.png">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.054"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image ToolTip="L - Sitting work and zero training | M - Sitting work and 1h training 1-3 times a week | H - Phisical work and 1h training 5 times a week" ToolTipService.ShowDuration="12000"   Height="12" Canvas.Left="129" Width="12" RenderTransformOrigin="0.27,0.093" Source="/FoodDiary;component/Images/icon.png" Canvas.Top="11">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.054"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
         </Canvas>
     </Grid>
 </Window>

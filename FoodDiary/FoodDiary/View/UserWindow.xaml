@@ -3,10 +3,124 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FoodDiary.View"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:local="clr-namespace:FoodDiary.ViewModel"
         mc:Ignorable="d"
-        Title="UserWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="FoodDiary" Height="650" Width="950" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <local:UserWindowViewModel/>
+    </Window.DataContext>
+    <Window.Background>
+        <ImageBrush ImageSource="/Images/Userthem1.jpg"/>
+    </Window.Background>
+    <Grid RenderTransformOrigin="0.574,0.517" Margin="-1,0,1,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width = "150"/>
+            <ColumnDefinition Width = "auto"/>
+            <ColumnDefinition Width = "auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Label  x:Name="username" HorizontalAlignment="Center"  Content="TEST" Grid.Column="0" Grid.Row="1"  FontSize="20" FontFamily="Century Gothic" Background="#FF5B5B5B" BorderBrush="#FF9B9595" Foreground="White"/>
+        <Button x:Name="add_Product" Content="Add Product" Grid.Column="0" Grid.Row="2"  FontSize="20" FontFamily="Century Gothic" Background="#FF5B5B5B" Foreground="#FFFDFFFD" BorderBrush="#FF9B9595" />
+        <Button x:Name="diary"       Content="Diary"    Grid.Column="0" Grid.Row="3"     FontSize="20" FontFamily="Century Gothic" Background="#FF5B5B5B" Foreground="#FFFDFFFD" BorderBrush="#FF9B9595" />
+        <Button x:Name="settings"    Content="Settings" Grid.Column="0" Grid.Row="4"     FontSize="20" FontFamily="Century Gothic" Background="#FF5B5B5B" Foreground="#FFFDFFFD" BorderBrush="#FF9B9595" />
+        <Button Content="Log out"  Grid.Column="0" Grid.Row="5"     FontSize="20" FontFamily="Century Gothic" Background="#FF5B5B5B" Foreground="#FFFDFFFD" BorderBrush="#FF9B9595" Click="Log_Out_Click" />
+        <Button Content="Exit"     Grid.Column="0" Grid.Row="6"     FontSize="20" FontFamily="Century Gothic" Background="#FF5B5B5B" Foreground="#FFFDFFFD" BorderBrush="#FF9B9595" Click="Exit_Click"/>
+        <Canvas Grid.Column="2" Margin="127,7,-19,28" Grid.RowSpan="5" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <!--<lvc:PieChart x:Name="Pie_chart" LegendLocation="Bottom"  Hoverable="False" DataTooltip="{x:Null}" Canvas.Left="228" Height="175" Width="276" Loaded="" AutomationProperties.IsRequiredForForm="True" Foreground="White" ScrollBarFill="#1E443131" Canvas.Top="16">--><!--
+                <lvc:PieChart.Series>
+                    <lvc:PieSeries x:Name="part_green"    Title="Lean body mass"  Values="0"  DataLabels="True" Foreground="#FFFFFEFC">
+                        <lvc:PieSeries.Fill>
+                            <SolidColorBrush Color="#FF61EC53" Opacity="1"/>
+                        </lvc:PieSeries.Fill>
+                    </lvc:PieSeries>
+                    <lvc:PieSeries x:Name="part_yellow"  Title="Fat"  Values="0"  DataLabels="True">
+                        <lvc:PieSeries.Fill>
+                            <SolidColorBrush Color="#FFD8D829" Opacity="1"/>
+                        </lvc:PieSeries.Fill>
+                    </lvc:PieSeries>
+                </lvc:PieChart.Series>
+            </lvc:PieChart>-->
+            <lvc:Gauge x:Name="half_dounat_chart"
+                       From="0" To="100" Value="00"
+                    LabelsVisibility="Collapsed" Height="118" Width="288" RenderTransformOrigin="0.5,0.5" Canvas.Left="-97" Canvas.Top="73" Foreground="White">
+                <lvc:Gauge.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.586"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </lvc:Gauge.RenderTransform>
+                <lvc:Gauge.GaugeActiveFill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="Red" Offset="0.0" />
+                        <GradientStop Color="Yellow" Offset="0.5"/>
+                        <GradientStop Color="Green" Offset="1.0" />
+                    </LinearGradientBrush>
+                </lvc:Gauge.GaugeActiveFill>
+            </lvc:Gauge>
+            <Label Content="Daily calories in %" Height="34" FontSize="22" FontFamily="Century Gothic" Canvas.Left="-53" Canvas.Top="29" Width="200" Foreground="White"/>
+        </Canvas>
+        <Canvas RenderTransformOrigin="1.917,4.381" Margin="14,4,449,15" Grid.Row="2" Grid.ColumnSpan="4">
+            <Line
+            X1="0" X2="950"
+            StrokeThickness="3" Canvas.Top="-38" Canvas.Left="-17" >
+                <Line.Stroke>
+                    <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                        <RadialGradientBrush.GradientStops>
+                            <GradientStop Color="White" Offset="0" />
+                            <GradientStop Color="White" Offset="0.25" />
+                        </RadialGradientBrush.GradientStops>
+                    </RadialGradientBrush>
+                </Line.Stroke>
+            </Line>
+        </Canvas>
+        <Canvas RenderTransformOrigin="1.917,4.381" Margin="14,4,449,15" Grid.Row="2" Grid.ColumnSpan="4">
+            <Line
+            Y1="0" Y2="520"
+            StrokeThickness="3" Canvas.Top="-38" Canvas.Left="137" >
+                <Line.Stroke>
+                    <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                        <RadialGradientBrush.GradientStops>
+                            <GradientStop Color="White" Offset="0" />
+                            <GradientStop Color="White" Offset="0.25" />
+                        </RadialGradientBrush.GradientStops>
+                    </RadialGradientBrush>
+                </Line.Stroke>
+            </Line>
+        </Canvas>
+        <Canvas Grid.Column="2"  Grid.Row="4" >
+            <!--<lvc:CartesianChart x:Name="linechart"  LegendLocation="Right" Canvas.Top="186" Height="232" Width="547" FontSize="14" Foreground="White" FontFamily="Century Gothic" Canvas.Left="76" >
+                <lvc:CartesianChart.AxisY >
+                    --><!--<lvc:Axis Title="Kcal" FontSize="15"  LabelFormatter="{Binding YFormatter}" FontWeight="Medium" FontFamily="Century Gothica" Foreground="White"></lvc:Axis>--><!--
+                </lvc:CartesianChart.AxisY>
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis x:Name="axisX" Title="Date" Foreground="White" FontSize="15" FontFamily="Century Gothica" FontWeight="Medium" ></lvc:Axis>
+                </lvc:CartesianChart.AxisX>
+            </lvc:CartesianChart>
+            --><!--<DatePicker  x:Name="data_od" CalendarClosed="data_od_CalendarClosed" Canvas.Top="160" Canvas.Left="117"/>--><!--
+            <DatePicker x:Name="data_do" CalendarClosed="data_od_CalendarClosed" Canvas.Top="158" Canvas.Left="290"/>-->
+        </Canvas>
+        <Label Content="Food Diary" HorizontalAlignment="Left" VerticalAlignment="Top" Height="81" Grid.Column="2"  FontSize="55" FontFamily="Century Gothic"  Foreground="White"  Margin="147,10,0,0" Width="311"/>
+        <Label Content="Body composition in Kg" FontSize="22" FontFamily="Century Gothic" RenderTransformOrigin="1.093,-0.182" Margin="366,14,-150,-38" Grid.Row="7" Grid.Column="2" Foreground="White"/>
+        <Label Content="From:" FontSize="18" FontFamily="Century Gothic" RenderTransformOrigin="1.093,-0.182" Margin="60,66,384,-90" Grid.Row="7" Grid.Column="2" Foreground="White"/>
+        <Label Content="To:" FontSize="18" FontFamily="Century Gothic" RenderTransformOrigin="1.093,-0.182" Margin="258,65,186,-89" Grid.Row="7" Grid.Column="2" Foreground="White"/>
     </Grid>
 </Window>
